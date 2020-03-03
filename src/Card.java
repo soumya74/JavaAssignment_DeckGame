@@ -38,7 +38,7 @@ public class Card implements Comparable<Card> {
 
 	@Override
 	public String toString() {
-		return "Card [s=" + s + ", v=" + v + "]";
+		return "Card [s=" + s + ", v=" + v + "]\n";
 	}
 
 	// in case two cards have same value,

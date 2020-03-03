@@ -4,6 +4,7 @@ public class DoubleCardGame extends CardGame {
 	
 	// StartGame logic handled DOUBLE card entry to each player for doubleCardGame
 	public void startGame() {
+		super.game_state = true;
 		for(Player p: players) {
 			
 			for(int i=0; i<2 ;i++) {

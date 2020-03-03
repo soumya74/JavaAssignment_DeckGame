@@ -8,6 +8,7 @@ abstract class CardGame {
 	
 	List<Player> players;
 	Deck cardDeck;
+	protected static Boolean game_state = false;
 	
 	public CardGame() {
 		players = new ArrayList<Player>();
@@ -53,7 +54,11 @@ abstract class CardGame {
 	Optional<Player> declareWinner(){
 		Player p = null;
 		
-		if(players.size() == 0) {
+		if(!game_state) {
+			System.out.println("Start Game first");
+		}
+		
+		if(players.size() == 0 || !game_state) {
 			return Optional.ofNullable(p);
 		}
 		
@@ -64,6 +69,7 @@ abstract class CardGame {
 	}
 	
 	void endGame() {
+		game_state = false;
 		for(Player p : players) {
 			Iterator itr = p.getCard().iterator();
 			
@@ -71,7 +77,6 @@ abstract class CardGame {
 				cardDeck.returnCard((Card) itr.next());
 				itr.remove();
 			}
-			
 		}
 	}
 	

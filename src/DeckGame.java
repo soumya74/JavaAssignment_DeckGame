@@ -1,15 +1,21 @@
+import java.io.IOException;
 import java.util.Optional;
 import java.util.Scanner;
 
 public class DeckGame {
 
-	public static void main(String []args) {
-		
-		Scanner in = new Scanner(System.in);
+	public static void showMainMenu() {
 		System.out.println("Select Game Mode");
 		System.out.println("1. Single Card Game");
 		System.out.println("2. Double Card Game");
 		System.out.println("10. Exit");
+	}
+	
+	public static void main(String []args) {
+		
+		Scanner in = new Scanner(System.in);
+		showMainMenu();
+
         int a = in.nextInt();
         
         CardGame game = null;
@@ -17,16 +23,19 @@ public class DeckGame {
 		while(a!=10) {
 	        switch(a) {
 	        case 1:
+	        	System.out.println("Single Card Game\n========================");
 	    		game = new SingleCardGame();
 	    		playCardGame(in, game);
 	        	break;
 	        case 2:
+	        	System.out.println("Single Card Game\n========================");
 	        	game = new DoubleCardGame();
 	        	playCardGame(in, game);
 	        	break;
 	        default:
 	        	System.out.println("wrong input");
 	        }	
+	        showMainMenu();
 	        a = in.nextInt();
 		}
 	}
@@ -96,7 +105,7 @@ public class DeckGame {
 	        a = in.nextInt();
 		}
 		
-		System.out.println("RETURNING TO MAIN MENU");
+		System.out.println("RETURNING TO MAIN MENU\n========================");
 	}
 	
 }
